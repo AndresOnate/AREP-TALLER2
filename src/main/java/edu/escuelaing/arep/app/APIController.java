@@ -76,4 +76,16 @@ public class APIController implements MovieAPI {
         }
         return movieJSON;
     }
+
+    /**
+     * Returns the cache used to store responses from movie API queries.
+     * The cache is a ConcurrentHashMap data structure that stores key-value pairs,
+     * where the key is the movie title and the value is the corresponding JSON response
+     * obtained from the movie API.
+     *
+     * @return The cache used to store responses from movie API queries.
+     */
+    public static ConcurrentHashMap<String, String> getCache() {
+        return cache;
+    }
 }

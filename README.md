@@ -55,33 +55,42 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
     ``` java -cp target/LAB2_AREP-1.0-SNAPSHOT.jar edu.escuelaing.arep.app.HttpServer ```
 
 7. Verifique en la linea de comanos que se imprimió el mensaje **Listo para recibir ...**
+   
+![image](https://github.com/AndresOnate/AREP-TALLER2/assets/63562181/9481e3f9-ce23-4280-912d-65c9fe3bcb8f)
 
-![image](https://github.com/AndresOnate/AREP-TALLER1/assets/63562181/ed3ca723-c5db-4c29-98ec-4fb5dea3287b)
 
-8. De igual forma, puede abrir el proyecto con un IDE y ejecutar el método main de la clase HTTPServer. En la imagen siguiente se muestra el proyecto con el IDE IntelliJ:
+9. De igual forma, puede abrir el proyecto con un IDE y ejecutar el método main de la clase HTTPServer. En la imagen siguiente se muestra el proyecto con el IDE IntelliJ:
 
-![image](https://github.com/AndresOnate/AREP-TALLER1/assets/63562181/b0cc4c7c-d574-4c2a-bc4d-b059e1fe939c)
+![image](https://github.com/AndresOnate/AREP-TALLER2/assets/63562181/28b63961-3560-415c-8081-9a6c04f2a8eb)
+
 
 ## Probando la Aplicación.  
 
 Una vez muestra en la línea de comandos el mensaje **Listo para recibir ...**, se puede ingresar a la aplicación en cualquier navegador con la siguiente URL:
 
-       http://localhost:35000/
+       http://localhost:35000/index.html
 
 Debería ver en pantalla lo siguiente:
 
-![image](https://github.com/AndresOnate/AREP-TALLER1/assets/63562181/e714baba-5970-4b20-841c-441e59a1a87f)
+![image](https://github.com/AndresOnate/AREP-TALLER2/assets/63562181/4eeed7ea-295a-438f-9a53-f0a2d9951462)
+
 
 Como puede observar, la aplicación tiene un espacio donde puede ingresar el título de la película. Una vez ingrese el título, presione el botón `Search`, 
 La información de la película es mostrada en una tabla.
 
-![image](https://github.com/AndresOnate/AREP-TALLER1/assets/63562181/2f65c2e5-b14b-4449-98af-4bde4b6f6662)
+![image](https://github.com/AndresOnate/AREP-TALLER2/assets/63562181/0e1ae431-d25d-4e03-8937-f0dceb70dee4)
+
 
 El servidor puede tardar unos segundos mientras obtiene la información del API.  Si desea consultar otra película, ingrese el título y vuelva a dar en el botón. 
 
 Si  la API retorna el error `"{"Response":"False","Error":"Movie not found!"}"`, la aplicación informará a los usuarios:
 
-![image](https://github.com/AndresOnate/AREP-TALLER1/assets/63562181/af768ff7-53ec-437f-a880-300ed1cee002)
+![image](https://github.com/AndresOnate/AREP-TALLER2/assets/63562181/2c9a2b8c-01e5-4c1f-9c37-dccfccdd107c)
+
+Comprobamos que los recursos estén cargados de forma correcta:
+
+![image](https://github.com/AndresOnate/AREP-TALLER2/assets/63562181/3ee741b9-f24f-401d-abac-3e99b144a06d)
+
 
 ## Ejecutando las Pruebas.  
 

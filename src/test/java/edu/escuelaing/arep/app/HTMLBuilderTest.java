@@ -17,14 +17,10 @@ public class HTMLBuilderTest {
     @Test
     public void testBuildHttpError() {
         String title = "NonExistentMovie";
-        String result = HTMLBuilder.httpError(title);
+        String result = HTMLBuilder.httpMovieError(title);
         assertTrue(result.contains("Not Found"));
         assertTrue(result.contains(title));
     }
 
-    @Test
-    public void testBuildHttpClientHtml() {
-        String result = HTMLBuilder.httpClientHtml();
-        assertTrue(result.contains("HTTP/1.1 200 OK"));
-    }
+
 }

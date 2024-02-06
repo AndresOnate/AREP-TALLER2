@@ -22,5 +22,49 @@ public class HTMLBuilderTest {
         assertTrue(result.contains(title));
     }
 
+    @Test
+    public void testGetContentTypeForJS() {
+        String contentType = HTMLBuilder.getContentType("js");
+        assertEquals("Content-Type: text/javascript\r\n", contentType);
+    }
+
+    @Test
+    public void testGetContentTypeForHTML() {
+        String contentType = HTMLBuilder.getContentType("html");
+        assertEquals("Content-Type: text/html\r\n", contentType);
+    }
+
+    @Test
+    public void testGetContentTypeForCSS() {
+        String contentType = HTMLBuilder.getContentType("css");
+        assertEquals("Content-Type: text/css\r\n", contentType);
+    }
+
+    @Test
+    public void testGetContentTypeForPNG() {
+        String contentType = HTMLBuilder.getContentType("png");
+        assertEquals("Content-Type: image/png\r\n", contentType);
+    }
+
+    @Test
+    public void testGetContentTypeForJPG() {
+        String contentType = HTMLBuilder.getContentType("jpg");
+        assertEquals("Content-Type: image/jpg\r\n", contentType);
+    }
+
+    @Test
+    public void testBuildHttpOkHeader() {
+        String contentType = "Content-Type: text/html\r\n";
+        String httpOkHeader = HTMLBuilder.httpOkHeader(contentType);
+        assertTrue(httpOkHeader.contains("200 OK"));
+        assertTrue(httpOkHeader.contains(contentType));
+    }
+
+    @Test
+    public void testBuildHttpNotFoundError() {
+        String httpError = HTMLBuilder.httpError();
+        assertTrue(httpError.contains("400 Not Found"));
+    }
+
 
 }

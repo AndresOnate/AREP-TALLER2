@@ -1,21 +1,22 @@
 # TALLER DISEÑO Y ESTRUCTURACIÓN DE APLICACIONES DISTRIBUIDAS EN INTERNET
 
-En este taller se implementó un servidor que funciona como gateway para encapsular llamadas a servicios web externos. La aplicación que entrega el servidor a los clientes web permite consultar información de películas de cine, esta información es obtenida de OMDb API.
+En este taller se exploró la arquitectura de las aplicaciones distribuidas, específicamente la de un servidor web y el protocolo HTTP.   El servidor entrega a los clientes web una aplicación que  permite consultar información de películas. Esta información es obtenida de OMDb API. Todos los archivos para la construcción de la aplicación son leídos por el servidor del disco local y retornados en un formato adecuado.
 
 ## Diseño de la aplicación
 
-Se construye la aplicación de tal forma que cumpla con los requisitos especificados en el enunciado del taller.
+La aplicación está diseñada para cumplir con los requisitos especificados en el enunciado del taller y proporcionar una experiencia de usuario fluida y satisfactoria. A continuación, se describen los principales componentes y características de la aplicación:
 
-- La clase `HttpServer` contiene la lógica del servidor. Recibe las solicitudes de los usuarios y hace el llamado a la API.
-- El servidor entrega a los usuarios un cliente asíncrono al cual pueden acceder desde cualquier navegador.
-- Al realizar una consulta desde la aplicación, el servidor hace el llamado a una API externa.
-- La respuesta que es dada por la API es validada para devolver al usuario la información correcta. En caso de que la película no se encuentra en la API, se mostrará al usuario un mensaje adecuado.
+- La clase `HttpServer` es responsable de manejar las solicitudes entrantes de los usuarios y coordinar las interacciones entre el cliente y la API externa. Además de esta funcionalidad, también incluye métodos para la lectura de archivos, lo que permite servir contenido estático como archivos `HTML`, `CSS`, `JavaScript` e imágenes en los formatos `PNG` y `JPG`.
+- El servidor proporciona a los usuarios un cliente asíncrono al que pueden acceder desde cualquier navegador
 - La clase `APIController` realiza la conexión a OMDb API en el método `connectToMoviesAPI`, al cual se le pasa como argumento el título de la película. Si la película es encontrada, se retorna un String con los datos, de lo contrario, se establecen mecanismos para validar si la película no fue encontrada y mostrar al usuario el estado de la consulta.
-- `APIController` almacena en una estructura de datos concurrente `ConcurrentHashMap` un caché de las consultas hechas a la API, lo que acorta considerablemente los tiempos de respuesta.
+- La clase `APIController` utiliza una estructura de datos concurrente `ConcurrentHashMap` para almacenar en caché las consultas realizadas a la API. Esto mejora significativamente los tiempos de respuesta al evitar consultas repetidas para las mismas películas.
 - La clase `HTMLBuilder` ofrece métodos para construir las respuestas HTML que son enviadas a los usuarios.
+- Se agrega el directorio `resources` donde se almacenan los archivos que serán leídos por el servidor.
+
 
 ## Extensión de la aplicación.
 
+-   Ampliar la lógica para incluir soporte para más extensiones de imágenes. Actualmente, la clase maneja extensiones como `PNG` y `JPG`. Se podría extender para agregar soporte para extensiones adicionales como `JPEG`, `GIF`, `WebP`, entre otras.
 -  La clase `APIController` implementa la interface `MovieAPI`,  lo que permitirá cambiar fácilmente la API de películas o agregar nuevas funcionalidades.
 -  De igual forma, el atributo `GET_URL` de la clase `APIController` permite cambiar de proveedor de forma sencilla, solo debe ajustar la URL de forma que permita acceder a los recursos.
 -  El caché puede ser implementado mediante servicios Cloud como Redis en Azure.
@@ -35,11 +36,11 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
 
 1. Ubíquese sobre el directorio donde desea realizar la descarga y ejecute el siguiente comando:
    
-     ``` git clone https://github.com/AndresOnate/AREP-TALLER1.git ```
+     ``` git clone https://github.com/AndresOnate/AREP-TALLER2.git ```
 
 2. Navegue al directorio del proyecto:
    
-      ``` cd  AREP-TALLER1 ```
+      ``` cd  AREP-TALLER2 ```
 
 3. Ejecute el siguiente comando para compilar el código:
 
@@ -51,7 +52,7 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
 
 6. Para iniciar el servidor, ejecute el siguiente comando:
 
-    ``` java -cp target/LAB1_AREP-1.0-SNAPSHOT.jar edu.escuelaing.arep.app.HttpServer ```
+    ``` java -cp target/LAB2_AREP-1.0-SNAPSHOT.jar edu.escuelaing.arep.app.HttpServer ```
 
 7. Verifique en la linea de comanos que se imprimió el mensaje **Listo para recibir ...**
 

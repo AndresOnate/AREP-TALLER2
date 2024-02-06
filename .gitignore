@@ -3,16 +3,15 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### IntelliJ IDEA ###
-/out/
+##############################
+## IntelliJ
+##############################
+out/
 .idea/
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+.idea_modules/
 *.iml
 *.ipr
+*.iws
 
 ### Eclipse ###
 .apt_generated
